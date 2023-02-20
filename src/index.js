@@ -1,13 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import reduxStore from "./redux/store";
+import styled from "styled-components";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const AppContainer = styled.div`
+  height: 100vh;
+  box-sizing: border-box;
+`;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={reduxStore}>
+      <AppContainer>
+        <App />
+      </AppContainer>
+    </Provider>
   </React.StrictMode>
 );
 
